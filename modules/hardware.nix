@@ -18,9 +18,6 @@
     pulse.enable = true;
   };
 
-  # Enable CUPS for printing
-  services.printing.enable = true;
-
   # Configure network
   networking = {
     hostName = "laptop";
