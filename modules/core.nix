@@ -22,4 +22,17 @@
   nixpkgs.config.allowUnfree = true;
 
   # Apply home configs
-  system.activationScripts.applyDotfiles = "cp -a /etc/nixos/hosts/${name}/home/. /home/user/";
+  system.activationScripts.apply_dotfiles = "cp -a /etc/nixos/hosts/${name}/home/. /home/user/";
+
+  # Install git and update command
+  environment.systemPackages = with pkgs; [
+    git
+    (pkgs.writeShellScriptBin "nixos-config-update" ''
+      #!${pkgs.bash}/bin/bash
+      set -e
+      cd /etc/nixos
+      sudo find . -mindepth 1 -delete
+      sudo git clone https://github.com/tob4n/nixos-laptop .
+      sudo nixos-rebuild switch
+    '')
+  ];
