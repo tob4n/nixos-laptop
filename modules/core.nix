@@ -1,11 +1,5 @@
 { pkgs, ... }: {
 
-  # Setup EFI boot loader
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
   # Enable NetworkManager
   networking.networkmanager.enable = true;
 
@@ -24,7 +18,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Apply home configs
-  system.activationScripts.apply_dotfiles = "cp -a /etc/nixos/hosts/${name}/home/. /home/user/";
+  system.activationScripts.apply_dotfiles = "cp -a /etc/nixos/hosts/user/home/. /home/user/";
 
   # Install git and update command
   environment.systemPackages = [
