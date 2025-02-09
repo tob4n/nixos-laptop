@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
 
   # Set platform type
   nixpkgs.hostPlatform = "x86_64-linux";
@@ -24,12 +24,14 @@
     useDHCP = lib.mkDefault true;
   };
 
-  # Configure bootloader
+  # Configure bootloader and kernel
   boot = {
     loader.grub = {
       enable = true;
+      useOSProber = true;
       device = "/dev/sda";
     };
+    kernelPackages = pkgs.linuxPackages_latest; 
     kernelModules = [ "kvm-intel" ];
     initrd.availableKernelModules = [
       "xhci_pci"
