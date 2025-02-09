@@ -27,8 +27,8 @@
   system.activationScripts.apply_dotfiles = "cp -a /etc/nixos/hosts/${name}/home/. /home/user/";
 
   # Install git and update command
-  environment.systemPackages = with pkgs; [
-    git
+  environment.systemPackages = [
+    pkgs.git
     (pkgs.writeShellScriptBin "nixos-config-update" ''
       #!${pkgs.bash}/bin/bash
       set -e
