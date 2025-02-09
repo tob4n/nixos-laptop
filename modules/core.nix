@@ -1,3 +1,5 @@
+{ pkgs, ... }: {
+
   # Setup EFI boot loader
   boot.loader = {
     systemd-boot.enable = true;
@@ -36,3 +38,5 @@
       sudo nixos-rebuild switch
     '')
   ];
+
+}
