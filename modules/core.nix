@@ -21,5 +21,5 @@
   # Allow proprietary software
   nixpkgs.config.allowUnfree = true;
 
-  # Apply host dotfiles
+  # Apply home configs
   system.activationScripts.applyDotfiles = "cp -a /etc/nixos/hosts/${name}/home/. /home/user/";
