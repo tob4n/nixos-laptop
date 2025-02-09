@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
 
   # Set platform type
   nixpkgs.hostPlatform = "x86_64-linux";
@@ -21,7 +21,7 @@
   # Configure network
   networking = {
     hostName = "laptop";
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
   };
 
   # Configure bootloader
@@ -43,12 +43,12 @@
 
   # Configure file system
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/9a80ebfd-54d6-410d-a8c3-25fc3cc7c1dd";
+    device = "/dev/sda1";
     fsType = "ext4";
   };
 
   swapDevices = [ 
-    { device = "/dev/disk/by-uuid/73f27c9f-b25c-4dff-b0dd-2c5260e98fe9"; }
+    { device = "/dev/sda2"; }
   ];
 
 }

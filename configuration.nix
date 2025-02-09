@@ -1,6 +1,6 @@
 { config, pkgs, name, ... }: {
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "24.11";
 
   imports = [
     modules/core.nix
