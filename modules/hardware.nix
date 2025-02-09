@@ -4,11 +4,7 @@
   
   time.timeZone = "America/Los_Angeles";
   
-  networking = {
-    hostName = "Thinkpad_X230";
-    wireless.iwd.enable = true;
-    networkmanager.wifi.backend = "iwd";
-  };
+  networking.hostName = "laptop";
   
   boot = {
     loader.grub = {
