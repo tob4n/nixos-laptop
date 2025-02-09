@@ -24,6 +24,7 @@
     fragments          # Torrenting client
     bottles            # Wine manager 
     ghex               # Hex editor
+    impression         # Bootable drive maker
     
   ];
 
