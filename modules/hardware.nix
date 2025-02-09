@@ -4,7 +4,10 @@
   
   time.timeZone = "America/Los_Angeles";
   
-  networking.hostName = "laptop";
+  networking = {
+    hostName = "laptop";
+    useDHCP = true;
+  };
   
   boot = {
     loader.grub = {
